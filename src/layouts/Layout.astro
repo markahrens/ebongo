@@ -1,0 +1,62 @@
+---
+interface Props {
+	title: string;
+	stop: string;
+}
+
+const { title, stop } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-PXCK98B');</script>
+			<!-- End Google Tag Manager -->
+		<meta charset="UTF-8" />
+		<meta name="description" content="eBongo" />
+		<meta name="viewport" content="width=device-width" />
+		<meta property="og:title" content="eBongo" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="The archive for Bongo" />
+		<meta property="og:image" content="https://www.ebongo.org" />
+		<meta name="generator" content={Astro.generator} />
+		{stop && (
+			<meta name="robots" content="noindex,nofollow"></meta>
+      <meta http-equiv="refresh" content={`10;URL='https://icareatransit.org/stop/${stop}'`}/>
+		)}
+		<title>{title} eBongo</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXCK98B"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			<!-- End Google Tag Manager (noscript) -->
+			<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--darkGrey: rgb(39, 39, 42);
+		--white: rgb(250, 250, 250);
+		--bongoGreen: rgb(21, 128, 61);
+		--bongoLightGreen: rgb(187, 247, 208);
+	}
+	body {
+		font-family: 'Noto Sans', sans-serif;
+		background-color: var(--darkGrey);
+	}
+	.container {
+		max-width: 1024px;
+		margin: 0 auto;
+		padding: 0px 10px;
+		background-color: var(--white);
+	}
+</style>

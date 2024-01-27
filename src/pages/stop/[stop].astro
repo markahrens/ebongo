@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export async function getStaticPaths() {
+  const stops = [];
+  for (let i = 1;i < 10; i++) {
+    stops.push({'params':{'stop': String(i).padStart(4,"0")}});
+  }
+  return stops;
+}
+const { stop } = Astro.params;
+---
+
+<Layout title={"Stop " + stop + " | "} stop={stop}>
+  <div class="container">
+    <div class="swoop" >
+      <img src="/bongologo.png" alt="Bongo Logo" />
+    </div>
+    <h1>Stop {stop}</h1>
+    <p>Bongo was retired in June 2023. You can find the updated stop page at <a class="font-bold text-green-700" href="https://icareatransit.org/stop/{zeroPad(number,4)}">https://icareatransit.org/stop/{stop}</a> or this page will automatically redirect after 10 seconds. </p>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    padding-bottom: 10px;
+  }
+  .swoop {
+    border-bottom-left-radius: 100% 90%;
+		border-color: var(--white);
+		background-color: var(--bongoGreen);
+		height: 100px;
+		position: relative;
+    img {
+      height: 80px;
+      width: auto;
+      padding-top: 20px;
+    }
+  }
+  a {
+    color: var(--bongoGreen);
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="">
+	<div class="container">
+		<div class="swoop" >
+			<img src="/bongologo.png" alt="Bongo Logo" />
+			<p class="callout">Bongo was replaced with Transit for the mobile app and <a class="underline" href="https://icareatransit.org">Iowa City Area Transit Services</a> on the web.</p>
+		</div>
+		<h2>What was Bongo?</h2>
+		<p>Bongo was a GPS-based, real-time passenger information system that allows riders to find current bus locations as well as predictions for upcoming bus arrivals for Iowa City, Coralville and the University of Iowa.</p>
+	</div>
+</Layout>
+
+<style>
+	.container {
+		padding-top: 20px;
+	}
+	.swoop {
+		border-top-left-radius: 100% 50%;
+		border-color: var(--white);
+		background-color: var(--bongoGreen);
+		height: 300px;
+		padding-top: 80px;
+		position: relative;
+		img {
+			margin-top: -80px;
+		}
+		.callout {
+			color: var(--bongoLightGreen);
+			font-size: 20px;
+			position: absolute;
+			right: 8px;
+			bottom: 8px;
+			border: 1px solid var(--bongoLightGreen);
+			padding: 20px;
+			background-color: rgba(82, 82, 91,.75);
+			width: 530px;
+			a {
+				color: var(--bongoLightGreen);
+			}
+		}
+	}
+</style>
